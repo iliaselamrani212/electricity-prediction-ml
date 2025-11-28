@@ -97,3 +97,47 @@ electricity_prediction_ml/
 │   └── streamlit_app.py       # Streamlit prediction app
 │
 └── README.md
+```
+## 🧪 Exploratory Data Analysis (EDA)
+
+The analysis performed in `notebooks/AED.ipynb` ensures high-quality training data:
+
+* **Data Integrity:** Analysis of missing values and duplicates.
+* **Distributions:** Histograms and log-transformations of skewed data.
+* **Correlations:** Heatmaps to detect relationships between weather and energy.
+* **Segmentation:** Energy consumption analysis by `primary_use`.
+
+---
+
+## 🧰 Training Pipeline
+
+The script `electricity_prediction_ml/train_model.py` orchestrates the entire process:
+
+1.  **Loading & Merging:** Joins building metadata, weather data, and meter readings.
+2.  **Preprocessing:** Builds the `ColumnTransformer`.
+3.  **Training:** Trains the 3 base models and optimizes the Weighted Voting Regressor.
+4.  **Serialization:** Saves the complete pipeline to `models/model.pkl`.
+
+> **Note:** The saved `.pkl` file contains the Preprocessing steps, Custom Transformers, and the Ensemble Model, making it fully ready for inference.
+
+---
+
+## 📉 Model Evaluation
+
+Run `electricity_prediction_ml/evaluation.py` to test the model on a held-out test set (20% split).
+
+**Metrics Reported:**
+* **R² Score:** Explains variance fitting.
+* **RMSE:** Root Mean Squared Error (in kWh).
+
+---
+
+## 🌐 Streamlit Web Application
+
+An interactive dashboard for real-time predictions.
+
+**How to run:**
+```bash
+streamlit run app/streamlit_app.py
+
+
