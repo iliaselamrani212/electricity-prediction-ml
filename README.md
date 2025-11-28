@@ -154,7 +154,7 @@ streamlit run app/streamlit_app.py
 
 ### 1. Clone Repository
 ```bash
-git clone <YOUR_REPO_URL_HERE>
+git clone https://github.com/iliaselamrani212/electricity-prediction-ml.git
 cd electricity_prediction_ml
 ```
 
