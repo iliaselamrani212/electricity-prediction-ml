@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "electricity-prediction-ml"
+version = "0.1.0"
+description = ""
+authors = ["iliaselamrani212 <iliaselamrani8877@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "electricity_prediction_ml", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+pandas = "^2.3.3"
+joblib = "^1.5.2"
+scikit-learn = "^1.7.2"
+streamlit = "^1.36.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
