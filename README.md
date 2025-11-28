@@ -139,5 +139,22 @@ An interactive dashboard for real-time predictions.
 **How to run:**
 ```bash
 streamlit run app/streamlit_app.py
+```
+### Workflow
 
+1.  Enter building characteristics (Square feet, usage, etc.).
+2.  Input daily weather conditions.
+3.  Select specific Date & Time.
+4.  Click **“Predict”**.
+5.  View the estimated consumption (kWh).
+
+---
+
+## ⚙ Installation
+
+### 1. Clone Repository
+```bash
+git clone <YOUR_REPO_URL_HERE>
+cd electricity_prediction_ml
+```
 
