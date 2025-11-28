@@ -75,14 +75,7 @@ The pipeline is automatically applied before training and inference using `Colum
 
 ```text
 electricity_prediction_ml/
-│
-├── data/
-│   ├── train.csv
-│   ├── building_metadata.csv
-│   └── weather_train.csv
-│
-├── models/
-│   └── model.pkl              # Final trained pipeline (Preproc + Ensemble)
+│             
 │
 ├── notebooks/
 │   ├── AED.ipynb              # Exploratory Data Analysis
@@ -138,7 +131,8 @@ An interactive dashboard for real-time predictions.
 
 **How to run:**
 ```bash
-streamlit run app/streamlit_app.py
+streamlit run app/app_streamlit.py
+
 ```
 ### Workflow
 
