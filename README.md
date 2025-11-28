@@ -1,116 +1,79 @@
-⚡ Building Electricity Consumption Prediction (ASHRAE Dataset)
+# ⚡ Building Electricity Consumption Prediction (ASHRAE Dataset)
 
-A complete end-to-end Machine Learning project that predicts the electricity consumption (meter_reading) of buildings using the ASHRAE – Great Energy Predictor III dataset.
-The project includes full preprocessing, advanced modeling, an ensemble voting system, and a Streamlit web application for interactive predictions.
+A complete end-to-end Machine Learning project that predicts the electricity consumption (`meter_reading`) of buildings using the **ASHRAE – Great Energy Predictor III** dataset.
 
-✨ Features
+The project includes full preprocessing, advanced modeling, an ensemble voting system, and a **Streamlit** web application for interactive predictions.
 
-Upload or enter building information:
+---
 
-Building ID, Site ID
+## ✨ Features
 
-Primary Use
+This project offers a comprehensive solution for energy prediction:
 
-Year Built, Floor Count
+* **Building Information Input:**
+    * Building ID, Site ID
+    * Primary Use (e.g., Education, Office, Lodging)
+    * Year Built, Floor Count
+    * Square Feet
+* **Weather Conditions Input:**
+    * Air Temperature, Dew Temperature
+    * Cloud Coverage & Precip Depth
+    * Sea Level Pressure
+    * Wind Speed & Wind Direction
+* **Time Features:** Date and specific hour (capturing daily cycles).
+* **Fully Automated Pipeline:**
+    * Missing data handling & Imputation.
+    * Encoding (OneHot) & Feature Scaling (StandardScaler).
+    * Log transformations for skewed data.
+    * Non-linear feature expansion using Splines.
 
-Square Feet
+---
 
-Enter weather conditions:
+## 🔬 Machine Learning Models Explained
 
-Air Temperature, Dew Temperature
+The prediction engine is based on a **Weighted Voting Regressor** composed of three optimized models.
 
-Cloud Coverage
+### 1. ExtraTrees Regressor
+* **Type:** Tree-based ensemble learning.
+* **Pros:** Handles non-linearity extremely well, robust to noise, and efficient on large datasets.
 
-Sea Level Pressure
+### 2. Gradient Boosting Regressor
+* **Type:** Sequential tree building to minimize error.
+* **Pros:** High accuracy on tabular data.
+* **Optimization:** Hyperparameters tuned via `RandomizedSearchCV`.
 
-Wind Speed & Wind Direction
+### 3. Spline Regression (SplineTransformer + Ridge)
+* **Type:** Linear regression on non-linear features.
+* **Technique:** Uses B-splines to model smooth non-linear relationships (ideal for weather data) combined with Ridge regularization to prevent overfitting.
 
-Precip Depth
+### 4. Weighted Voting Regressor (The Final Model)
+This model combines predictions from the three base learners. The influence of each model is determined by its validation performance:
 
-Timestamp (Date + Time)
+$$weight = \frac{1}{RMSE_{model}}$$
 
-Predict electricity consumption (meter_reading) using a trained ensemble model:
+> **Result:** Models with better accuracy have a higher impact on the final prediction, providing a stable and robust output.
 
-ExtraTreesRegressor
+---
 
-GradientBoostingRegressor
+## 📊 Preprocessing Pipeline
 
-SplineTransformer + Ridge Regression
+The pipeline is automatically applied before training and inference using `ColumnTransformer`:
 
-Weighted Voting Regressor
+### Custom Transformers
+* **`HourExtractor`:** Extracts the hour from the timestamp to capture daily energy usage cycles.
+* **`LogTransformer`:** Stabilizes highly skewed numerical features (e.g., `square_feet`).
 
-Fully automated:
+### Standard Transformations
+* **OneHotEncoder:** For categorical features (e.g., `primary_use`).
+* **StandardScaler:** For numerical features.
+* **SplineTransformer:** Generates smooth non-linear features.
+* **Imputation:** Fills missing values to ensure data integrity.
 
-Missing data handling
+---
 
-Encoding
+## 🗂 Folder Structure
 
-Feature scaling
-
-Log transformations
-
-Non-linear feature expansion (splines)
-
-🔬 Machine Learning Models Explained
-1. ExtraTrees Regressor
-
-Tree-based ensemble learning.
-
-Pros: Handles non-linearity and large datasets, robust to noise.
-
-2. Gradient Boosting Regressor
-
-Builds trees sequentially to reduce error.
-
-Pros: High accuracy, good for tabular data.
-
-Tuned with RandomizedSearchCV.
-
-3. Spline Regression (SplineTransformer + Ridge)
-
-Uses B-splines to model smooth non-linear relationships.
-
-Ridge regularization controls overfitting.
-
-Excellent for modeling continuous weather/building features.
-
-4. Weighted Voting Regressor
-
-Final model that combines all base learners:
-
-weight = 1 / RMSE_model
-
-
-Models with better accuracy influence more the final prediction.
-
-Provides strong, stable performance.
-
-📊 Preprocessing Pipeline
-
-Applied automatically before training and prediction:
-
-Custom Transformers
-✔ HourExtractor
-
-Extracts the hour from timestamp (captures daily energy cycles).
-
-✔ LogTransformer
-
-Stabilizes skewed features like square_feet.
-
-Other preprocessing
-
-OneHotEncoder for categorical features
-
-StandardScaler for numerical features
-
-SplineTransformer for smooth non-linearity
-
-Imputation of missing values
-
-ColumnTransformer for pipeline assembly
-
-🗂 Folder Structure
+```text
 electricity_prediction_ml/
 │
 ├── data/
@@ -119,14 +82,14 @@ electricity_prediction_ml/
 │   └── weather_train.csv
 │
 ├── models/
-│   └── model.pkl              # Final trained pipeline
+│   └── model.pkl              # Final trained pipeline (Preproc + Ensemble)
 │
 ├── notebooks/
 │   ├── AED.ipynb              # Exploratory Data Analysis
 │   └── Model.ipynb            # Prototype and experiments
 │
 ├── electricity_prediction_ml/
-│   ├── custom_transformers.py # LogTransformer, HourExtractor
+│   ├── custom_transformers.py # Classes: LogTransformer, HourExtractor
 │   ├── train_model.py         # Final training script
 │   ├── evaluation.py          # Independent test evaluation
 │
@@ -134,122 +97,3 @@ electricity_prediction_ml/
 │   └── streamlit_app.py       # Streamlit prediction app
 │
 └── README.md
-
-🧪 Exploratory Data Analysis (EDA)
-
-Performed in AED.ipynb:
-
-Missing values analysis
-
-Duplicate analysis
-
-Distributions & histograms
-
-Correlation heatmap
-
-Energy consumption by primary_use
-
-Weather variable analysis
-
-Log-transformations
-
-Detection of influential features
-
-EDA ensures high-quality training data.
-
-🧰 Training Pipeline
-
-train_model.py performs:
-
-Loading & merging the ASHRAE dataset
-
-Preprocessing (ColumnTransformer)
-
-Training 3 optimized models
-
-Combining them with a weighted VotingRegressor
-
-Saving the complete pipeline:
-
-model.pkl
-
-
-This file contains:
-
-✔ Preprocessing
-✔ Custom transformers
-✔ Ensemble model
-
-→ Fully ready for inference.
-
-📉 Model Evaluation
-
-evaluation.py tests the final model on previously unseen data (20% test split).
-
-Metrics calculated:
-
-R² Score
-RMSE
-
-
-Ensures consistent performance in real-world usage.
-
-🌐 Streamlit Web Application
-
-Run the prediction UI:
-
-streamlit run app/streamlit_app.py
-
-
-Features:
-
-Enter all building characteristics
-
-Enter daily weather conditions
-
-Select a date & hour
-
-Click “Predict”
-
-Output:
-
-Predicted consumption: XX.XX kWh
-
-
-Ideal for energy engineers and facility managers.
-
-⚙ Installation
-1. Clone repository
-git clone <YOUR_REPO_HERE>
-cd electricity_prediction_ml
-
-2. Create virtual environment
-python -m venv .venv
-.venv/Scripts/activate   # Windows
-source .venv/bin/activate  # Linux/macOS
-
-3. Install dependencies
-pip install -r requirements.txt
-
-▶ Usage
-Train the model
-python electricity_prediction_ml/train_model.py
-
-Evaluate performance
-python electricity_prediction_ml/evaluation.py
-
-Launch the Streamlit web app
-streamlit run app/streamlit_app.py
-
-📝 Notes
-
-.gitignore excludes:
-
-datasets
-
-saved models
-
-virtual environment
-
-The model can be retrained anytime using train_model.py
-
