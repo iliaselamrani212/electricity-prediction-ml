@@ -133,6 +133,10 @@ An interactive dashboard for real-time predictions.
 ```bash
 streamlit run app/app_streamlit.py
 
+
+https://github.com/user-attachments/assets/59a94b30-a358-4d7c-b6df-f9662f1742f5
+
+
 ```
 ### Workflow
 
