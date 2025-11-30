@@ -25,7 +25,7 @@ This project offers a comprehensive solution for energy prediction:
     * Missing data handling & Imputation.
     * Encoding (OneHot) & Feature Scaling (StandardScaler).
     * Log transformations for skewed data.
-    * Non-linear feature expansion using Splines.
+    * Non-linear feature expansion using splines.
 
 ---
 
