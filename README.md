@@ -11,7 +11,7 @@ The project includes full preprocessing, advanced modeling, an ensemble voting s
 This project offers a comprehensive solution for energy prediction:
 
 * **Building Information Input:**
-    * Building ID, Site Id
+    * Building ID, Site ID
     * Primary Use (e.g., Education, Office, Lodging)
     * Year Built, Floor Count
     * Square Feet
