@@ -8,7 +8,7 @@ The project includes full preprocessing, advanced modeling, an ensemble voting s
 
 ## ✨ Features
 
-This project offers a comprehensive solution for energy prediction:
+This project offers a comprehensive solution for energy prediction :
 
 * **Building Information Input:**
     * Building ID, Site ID
