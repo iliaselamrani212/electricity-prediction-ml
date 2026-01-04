@@ -91,7 +91,7 @@ electricity_prediction_ml/
 │
 └── README.md
 ```
-## 🧪 Exploratory Data Analysis (EDA)
+##  Exploratory Data Analysis (EDA)
 
 The analysis performed in `notebooks/AED.ipynb` ensures high-quality training data:
 
