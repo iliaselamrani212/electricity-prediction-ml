@@ -115,7 +115,7 @@ The script `electricity_prediction_ml/train_model.py` orchestrates the entire pr
 
 ---
 
-## 📉 Model Evaluation
+##  Model Evaluation
 
 Run `electricity_prediction_ml/evaluation.py` to test the model on a held-out test set (20% split).
 
