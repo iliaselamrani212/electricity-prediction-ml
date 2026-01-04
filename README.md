@@ -1,4 +1,4 @@
-# ⚡ Building Electricity Consumption Prediction (ASHRAE Dataset)
+#  Building Electricity Consumption Prediction (ASHRAE Dataset)
 
 A complete end-to-end Machine Learning project that predicts the electricity consumption (`meter_reading`) of buildings using the **ASHRAE – Great Energy Predictor III** dataset.
 
