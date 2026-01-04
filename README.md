@@ -21,7 +21,7 @@ This project offers a comprehensive solution for energy prediction :
     * Sea Level Pressure
     * Wind Speed & Wind Direction
 * **Time Features:** Date and specific hour (capturing daily cycles).
-* **Fully Automated Pipeline:**
+* **Fully Automated Pipeline:** 
     * Missing data handling & Imputation.
     * Encoding (OneHot) & Feature Scaling (StandardScaler).
     * Log transformations for skewed data.
@@ -29,7 +29,7 @@ This project offers a comprehensive solution for energy prediction :
 
 ---
 
-## 🔬 Machine Learning Models Explained
+##  Machine Learning Models Explained
 
 The prediction engine is based on a **Weighted Voting Regressor** composed of three optimized models.
 
