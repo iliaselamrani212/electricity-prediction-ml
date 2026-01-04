@@ -125,7 +125,7 @@ Run `electricity_prediction_ml/evaluation.py` to test the model on a held-out te
 
 ---
 
-## 🌐 Streamlit Web Application
+##  Streamlit Web Application
 
 An interactive dashboard for real-time predictions.
 
