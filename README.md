@@ -148,7 +148,7 @@ streamlit run app/app_streamlit.py
 
 ---
 
-## ⚙ Installation
+##  Installation
 
 ### 1. Clone Repository
 ```bash
