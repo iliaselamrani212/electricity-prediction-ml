@@ -55,7 +55,7 @@ $$weight = \frac{1}{RMSE_{model}}$$
 
 ---
 
-## 📊 Preprocessing Pipeline
+## Preprocessing Pipeline
 
 The pipeline is automatically applied before training and inference using `ColumnTransformer`:
 
