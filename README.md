@@ -102,7 +102,7 @@ The analysis performed in `notebooks/AED.ipynb` ensures high-quality training da
 
 ---
 
-## 🧰 Training Pipeline
+##  Training Pipeline
 
 The script `electricity_prediction_ml/train_model.py` orchestrates the entire process:
 
