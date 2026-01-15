@@ -5,7 +5,7 @@ A complete end-to-end Machine Learning project that predicts the electricity con
 The project includes full preprocessing, advanced modeling, an ensemble voting system, and a **Streamlit** web application for interactive predictions.
  
 --- 
-
+ 
 ##  Features
 
 This project offers a comprehensive solution for energy prediction :
