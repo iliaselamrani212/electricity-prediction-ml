@@ -6,7 +6,7 @@ The project includes full preprocessing, advanced modeling, an ensemble voting s
  
 --- 
  
-##  Features
+##  Features :
 
 This project offers a comprehensive solution for energy prediction :
 
